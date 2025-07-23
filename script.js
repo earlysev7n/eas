@@ -1,6 +1,6 @@
 const container = document.querySelector(".container");
 
-function makeGrid(size){
+function makeGrid(size){  //make grid
     container.innerHTML = ""
 
     squareSize = 960/size;
@@ -28,13 +28,24 @@ function makeGrid(size){
         square.style.height = squareSize + "px";
         square.addEventListener("mouseenter", function () {
             if(isMouseClicked){
-                square.style.backgroundColor = "black";            }
+                if(isColor) {
+                    const r = Math.floor(Math.random() * 256);
+                    const g = Math.floor(Math.random() * 256);
+                    const b = Math.floor(Math.random() * 256);
+                    const randomColor = `rgb(${r}, ${g}, ${b})`;
+                    square.style.backgroundColor = randomColor;
+                }else{
+                    square.style.backgroundColor = "black";
+                }
+            }
         });
         container.appendChild(square);
     }
 }
 
-const resize = document.querySelector("#resizeBtn");
+ makeGrid(16);
+
+const resize = document.querySelector("#resizeBtn"); //resize
 
 resize.addEventListener("click",function (){
 
@@ -42,15 +53,23 @@ resize.addEventListener("click",function (){
 
     while (userInput > 100){
         userInput = parseInt(prompt("Grid size(MAX 100): "));
-    }
+    }  
 
     makeGrid(userInput);
 });
 
-const reset = document.querySelector("#resetBtn");
+const reset = document.querySelector("#resetBtn"); //reset
 
 reset.addEventListener("click", function () {
     makeGrid(16);
 });
 
-makeGrid(16);
+const color = document.querySelector("#colorBtn"); //color
+
+let isColor = false;
+
+color.addEventListener("click", function() {
+    isColor = !isColor;
+})
+
+
