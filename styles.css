@@ -1,8 +1,10 @@
 .container {
     display: flex;
     flex-wrap: wrap;
-    width: 960px;
+    width: 800px;
+    height: 650px;
     margin: 20px auto;
+    background-color: rgb(187, 186, 186);
     border: 2px solid black;
 }
 
@@ -11,4 +13,80 @@
     width: 60px;
     height: 60px;
     box-sizing: border-box;
+}
+
+.etch-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.etch-frame {
+    background-color: rgb(223, 54, 54);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 0 8px 20px;
+    width: 1000px;
+    height: 850px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.title {
+  position: absolute;
+  top: 0; 
+  align-items: center;
+  color: gold;
+  font-size: 50px;
+  font-family: 'Pacifico', cursive;
+}
+
+#colorBtn {
+    position: absolute;
+    bottom: 0;
+    height: 20px;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 30px;
+}
+
+.knob {
+  width: 80px;
+  height: 80px;
+  background-color: #d9d9d9;
+  border: 4px solid #aaa;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 30px;
+  box-shadow: 0 8px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}
+
+.left-knob {
+  left: 50px;
+}
+
+.right-knob {
+  right: 50px;
+}
+
+.right-knob:active {
+  transform: rotate(20deg);
+}
+
+.left-knob:active {
+  transform: scale(0.95);
+}
+
+
+.knob-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  pointer-events: none; 
 }
